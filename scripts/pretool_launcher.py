@@ -13,7 +13,7 @@ Supported platforms:
 IPC (Windows only): signal-file polling because WinForms runs in a separate process.
 macOS & Linux dialogs block synchronously — simpler, no polling needed.
 
-Author : cc (赵宸羲)
+Author : 22745-zcx
 License: MIT
 """
 
@@ -207,7 +207,7 @@ def _dialog_macos(tool_name: str, desc: str) -> str:
     safe_desc = desc.replace("\\", "\\\\").replace('"', '\\"')
 
     script = (
-        'set theResult to button returned of (display dialog "羲羲 需要执行: '
+        'set theResult to button returned of (display dialog "Claude 需要执行: '
         f'{cn_name}\\n\\n{safe_desc}\\n\\n'
         '允许执行此操作吗？" '
         'with title "Claude Code - 权限确认" '
@@ -233,7 +233,7 @@ def _dialog_linux(tool_name: str, desc: str) -> str:
     cn_name = cn_map.get(tool_name, tool_name)
 
     title = "Claude Code - 权限确认"
-    text = f"羲羲 需要执行: {cn_name}\n\n{desc}\n\n允许执行此操作吗？"
+    text = f"Claude 需要执行: {cn_name}\n\n{desc}\n\n允许执行此操作吗？"
 
     # 1) zenity (GNOME / GTK)
     if shutil.which("zenity"):

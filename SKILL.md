@@ -5,7 +5,7 @@ description: >
   当 Claude Code 执行删除、写入、编辑等操作时弹出中文窗口让用户确认。
   跨平台支持 Windows / macOS / Linux，自动识别安全命令并放行。
 version: 1.0.0
-author: cc (赵宸羲)
+author: 22745-zcx
 license: MIT
 platforms: [windows, macos, linux]
 tags: [security, confirmation, chinese, hook, pretooluse]

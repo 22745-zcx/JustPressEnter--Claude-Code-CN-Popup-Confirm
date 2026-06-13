@@ -39,7 +39,7 @@ $form.KeyPreview = $true
 
 # Title label
 $lblTitle = New-Object System.Windows.Forms.Label
-$lblTitle.Text = "羲羲 需要执行: $cnName"
+$lblTitle.Text = "Claude 需要执行: $cnName"
 $lblTitle.Font = New-Object System.Drawing.Font("Microsoft YaHei", 12, [System.Drawing.FontStyle]::Bold)
 $lblTitle.ForeColor = [System.Drawing.Color]::Cyan
 $lblTitle.AutoSize = $true
