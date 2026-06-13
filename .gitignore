@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.log
+pretool_signal.txt
+pretool_desc.txt
+pretool_debug.log
+.DS_Store
+Thumbs.db
