@@ -96,6 +96,44 @@ pretool_launcher.py (Python)
       允许 → 执行          拒绝 → 阻止
 ```
 
+## 高级用法
+
+### 系统级模态弹窗（Priority Mode）
+
+设置环境变量 `CLAUDE_CN_POPUP_PRIORITY=1` 可将弹窗提升为系统最高优先级——不关闭弹窗就无法操作其他窗口。
+
+**Windows（PowerShell）：**
+```powershell
+[Environment]::SetEnvironmentVariable("CLAUDE_CN_POPUP_PRIORITY", "1", "User")
+```
+
+**macOS / Linux（终端）：**
+```bash
+export CLAUDE_CN_POPUP_PRIORITY=1
+# 或写入 shell 配置:
+echo 'export CLAUDE_CN_POPUP_PRIORITY=1' >> ~/.bashrc
+```
+
+设为 `0`（默认）则恢复普通行为。
+
+### 操作影响分析
+
+弹窗现在包含**智能影响分析**区域，自动识别操作对象的类型并给出专业解释：
+
+| 识别类型 | 示例路径 | 解释要点 |
+|---------|---------|---------|
+| 源代码 | `*.py`, `*.js`, `*.ts` | 删除后模块可能无法运行 |
+| 配置文件 | `*.json`, `*.yaml`, `*.ini` | 删除/修改可能导致启动失败 |
+| 数据库 | `*.db`, `*.sqlite` | 数据永久丢失，不可恢复 |
+| 日志/临时 | `*.log`, `*.tmp`, `/tmp/*` | 可安全删除 |
+| 系统目录 | `/etc/*`, `C:\Windows\*` | ⚠ 可能影响系统稳定性 |
+| npm 依赖 | `node_modules/` | 可通过 `npm install` 恢复 |
+| Git 仓库 | `.git/` | 丢失全部版本历史 |
+
+无法确定时诚实地显示"由用户指定"——不编造信息。
+
+---
+
 ## 手动配置
 
 如果安装脚本失败，手动配置如下：
