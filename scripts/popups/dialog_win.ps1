@@ -42,11 +42,17 @@ $cnMap = @{"Bash" = "终端命令"; "Write" = "写入文件"; "Edit" = "编辑�
 $cnName = if ($cnMap[$toolName]) { $cnMap[$toolName] } else { $toolName }
 
 # ── Dynamic layout constants ───────────────────────────────────
-$baseHeight = 220
-$explainBoxHeight = if ($explanation) { 65 } else { 0 }
-$formHeight = $baseHeight + $explainBoxHeight
-$btnY = 165 + $explainBoxHeight
-$questionY = 120 + $explainBoxHeight
+if ($explanation) {
+    $explainBoxHeight = 65
+    $formHeight = 350
+    $questionY = 220
+    $btnY = 255
+} else {
+    $explainBoxHeight = 0
+    $formHeight = 280
+    $questionY = 140
+    $btnY = 175
+}
 $explainY = 145
 
 # ── Build form ─────────────────────────────────────────────────
