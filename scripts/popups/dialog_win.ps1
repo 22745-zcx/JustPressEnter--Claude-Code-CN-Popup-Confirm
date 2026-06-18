@@ -62,7 +62,7 @@ $form.Width = 560; $form.Height = $formHeight
 $form.StartPosition = "CenterScreen"
 $form.FormBorderStyle = "FixedDialog"
 $form.ControlBox = $false
-$form.ShowInTaskbar = ($Priority -ge 1)
+$form.ShowInTaskbar = $true
 $form.TopMost = $true
 $form.BackColor = [System.Drawing.Color]::FromArgb(30, 30, 30)
 $form.KeyPreview = $true
